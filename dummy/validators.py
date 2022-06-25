@@ -82,7 +82,7 @@ class Form:
             except(TypeError, ValueError):
                 errors["return_date"] = "Неверный формат даты"
 
-        if self.direct_date.date() == date.today():
+        if self.direct_date and self.direct_date.date() == date.today():
             self.direct_date, self.delta_in_seconds = get_departure_date_and_delta(self.direct_date)
 
         return errors
